@@ -41,7 +41,7 @@ public class MultivariateKalmanFilter {
     }
 
     public void move(RealMatrix F, RealMatrix B, RealVector u, RealMatrix Q){
-        //Go through the equations in Chapter 6 to fill this out.
+        //TODO #4 - Go through the equations in Chapter 6 to fill this out.
     }
 
     public void move(RealMatrix F, RealMatrix Q){
@@ -49,7 +49,7 @@ public class MultivariateKalmanFilter {
     }
 
     public void measure(RealMatrix H, RealMatrix R, RealVector z){
-        //Go through the equations in Chapter 6 to fill this out.
+        //TODO #5 - Go through the equations in Chapter 6 to fill this out.
     }
 
     public MultivariateNormalDistribution getEstimate(){

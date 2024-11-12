@@ -15,11 +15,11 @@ public class UnivariateKalmanFilter {
     }
 
     public void measure(NormalDistribution measurement){
-        //Go through the equations in Chapter 4 to fill this out.
+        //TODO #1 - Go through the equations in Chapter 4 to fill this out.
     }
 
     public void move(NormalDistribution movement){
-        //Go through the equations in Chapter 4 to fill this out.
+        //TODO #2 - Go through the equations in Chapter 4 to fill this out.
     }
 
     public NormalDistribution getEstimate(){

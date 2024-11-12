@@ -37,15 +37,16 @@ public class MultivariateKalmanFilterTest {
     }
 
     private static RealMatrix createF(double deltaT){
-        //Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
+        //TODO #6 - Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
         return MatrixUtils.createRealIdentityMatrix(3);
     }
 
     private static RealVector createZ(GroundTruthGenerator.Moment measurement){
-        //Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
+        //TODO #7 - Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
         return MatrixUtils.createRealVector(new double[]{1, 1, 1});
     }
 
+    //TODO #9 - Right click on the method below and "run". If it works the test will pass.
     @Test
     public void testPosVeloAccel() throws IOException {
         double warmup = 1.0;
@@ -55,7 +56,7 @@ public class MultivariateKalmanFilterTest {
         List<GroundTruthGenerator.Moment> measurements = createMeasurements(truths);
 
         //Create required matrix/vectors
-        //Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
+        //TODO #8 - Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
         RealVector x = MatrixUtils.createRealVector(new double[]{1, 1, 1});
         RealMatrix Q = MatrixUtils.createRealIdentityMatrix(3);
         RealMatrix H = MatrixUtils.createRealIdentityMatrix(3);

@@ -15,11 +15,32 @@ public class UnivariateKalmanFilter {
     }
 
     public void measure(NormalDistribution measurement){
-        //TODO #1 - Go through the equations in Chapter 4 to fill this out.
+        double estimateMean = estimate.getMean();
+        double estimateVar = estimate.getNumericalVariance();
+
+        double measurementMean = measurement.getMean();
+        double measurementVar = measurement.getNumericalVariance();
+
+        double residual = measurementMean - estimateMean;
+        double kalmanGain = estimateVar / (estimateVar + measurementVar);
+
+        estimateMean += (kalmanGain * residual);
+        estimateVar = estimateVar * (1 - kalmanGain);
+
+        estimate = new NormalDistribution(estimateMean, Math.sqrt(estimateVar));
     }
 
     public void move(NormalDistribution movement){
-        //TODO #2 - Go through the equations in Chapter 4 to fill this out.
+        double estimateMean = estimate.getMean();
+        double estimateVar = estimate.getNumericalVariance();
+
+        double movementMean = movement.getMean();
+        double movementVar = movement.getNumericalVariance();
+
+        double mean = estimateMean + movementMean;
+        double variance = estimateVar + movementVar;
+
+        estimate = new NormalDistribution(mean, Math.sqrt(variance));
     }
 
     public NormalDistribution getEstimate(){

@@ -39,13 +39,13 @@ public class MultivariateKalmanFilterTest {
     }
 
     private static RealMatrix createF(double deltaT){
-        //TODO #6 - Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
-        return MatrixUtils.createRealIdentityMatrix(3);
+        //#6 - Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
+        return MatrixUtils.createRealMatrix(new double[][]{{1, deltaT}, {1, 0}});
     }
 
     private static RealVector createZ(GroundTruthGenerator.Moment measurement){
-        //TODO #7 - Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
-        return MatrixUtils.createRealVector(new double[]{1, 1, 1});
+        // #7 - Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
+        return MatrixUtils.createRealVector(new double[]{measurement.value(), measurement.velocity()});
     }
 
     //TODO #9 - Right click on the method below and "run". If it works the test will pass.
@@ -59,10 +59,11 @@ public class MultivariateKalmanFilterTest {
 
         //Create required matrix/vectors
         //TODO #8 - Go through the equations in Chapter 6 to fill this out. The answer below is not correct.
-        RealVector x = MatrixUtils.createRealVector(new double[]{1, 1, 1});
-        RealMatrix Q = MatrixUtils.createRealIdentityMatrix(3);
-        RealMatrix H = MatrixUtils.createRealIdentityMatrix(3);
-        RealMatrix R = MatrixUtils.createRealIdentityMatrix(3);
+        RealVector x = MatrixUtils.createRealVector(new double[]{1, 1});
+        RealMatrix Q = MatrixUtils.createRealMatrix(2, 2);
+        //TODO white noise
+        RealMatrix H = MatrixUtils.createRowRealMatrix(new double[]{1, 1});
+        RealMatrix R = MatrixUtils.createRealMatrix(new double[][]{{0.1, 0}, {0, 0.1}});
 
         MultivariateKalmanFilter filter = new MultivariateKalmanFilter(x);
 
